@@ -65,4 +65,27 @@ public interface MsgService {
      * @return ValidationResult with true if validation is success, if validation fails ValidationResult has false and validation message property's.
      */
     ValidationResult validateMsg(String msgType, JsonObject jsonvalidateMessage);
+
+    /**
+     * Returns the domain Id from json formatted eiffel message.
+     * @param eiffelMessage eiffel message in json format
+     * @return the domainId from eiffelMessage if domainId not available then returns the null value
+     */
+    String getDomainId(JsonObject eiffelMessage);
+
+    /**
+     * Returns Routing key from the messaging library based on the eiffel message eventType.<br>
+     * In general, Routing key of eiffel message is in the format<br>
+                 <b>&lt;protocol&gt;.&lt;family&gt;.&lt;type&gt;.&lt;tag&gt;.&lt;domain&gt;</b><br>
+     * &lt;protocol&gt; is used if provided by the protocol library used.<br>
+     * &lt;family&gt; and &lt;type&gt; are provided by the protocol library.<br>
+     * &lt;tag&gt; which needs to be put in the Routing key<br>
+     * &lt;domain&gt; is configured and can be suffixed by a user domain.<br>
+     * @param eiffelMessage eiffel message in json format
+     * @param tag
+     * @param domain from which the message is sent
+     * @param userDomainSuffix
+     * @return Routing key in String format.
+     */
+    String getRoutingKey(JsonObject eiffelMessage, String tag, String domain, String userDomainSuffix);
 }
