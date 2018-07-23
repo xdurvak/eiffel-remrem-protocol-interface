@@ -32,9 +32,9 @@
             between the class and the outside world, and this contract is enforced at build time by the java compiler.</p>
         <h2>Installation</h2>
         <p>This project does not need any installation since it is an interface, which is implemented by other projects.</p>
-        <p>This project is build by gradle, by executing following commands:</p>
-        <pre>./gradlew build</pre>
-        <p>The produced jar file will be stored in /eiffel-remrem-protocol-interface/build/libs/</p>
+        <p>This project is build by maven, by executing following commands:</p>
+        <pre>mvn clean install</pre>
+        <p>The produced jar file will be stored in /eiffel-remrem-protocol-interface/target/</p>
         <h2>Configuration</h2>
         <p>This project does not need any configuration since it is an interface, which is implemented by other projects.</p>
         <h2>Compatibility</h2>
@@ -60,7 +60,7 @@
         <a href="https://github.com/Ericsson/eiffel-remrem-protocol-interface/blob/master/src/main/java/com/ericsson/eiffel/remrem/protocol/MsgService.java">JavaDoc</a>.
         </p>
         <p>To create new version of protocol one will need to modify the interface, change the java api docs for methods to represent new version of
-            interface and build the jar using gladle. Include builded jar as external library in other projects and in these project implement
+            interface and build the jar using maven. Include builded jar as external library in other projects and in these project implement
             the desired interface.</p>
         <p>To import the project user need to add to pom.xml</p>
         <div><pre>&lt;repositories&gt;
@@ -75,7 +75,7 @@
     &lt;version&gt;x.x.x&lt;/version&gt;
 &lt;/dependency&gt;</pre>
         </div>
-        <p>Or import the project to build.gradle<br>
+        <p>Or import the project to pom.xml<br>
         <div><pre>repositories {
     ...
     maven { url 'https://jitpack.io' }
